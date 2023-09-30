@@ -1,0 +1,15 @@
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+// Colors
+$primary: #00ABC9;
+$warning: #F56600;
+$danger: #E60D2E;
+$success: #54BC69;
+$info: #E6B012;
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here

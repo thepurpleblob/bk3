@@ -1,30 +1,45 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="container p-0 p-xs-1" id="app">
+    <PageHeader></PageHeader>
+    <router-view/>
+    <PageFooter></PageFooter>
+  </div>
 </template>
 
+<script setup>
+    import PageHeader from '@/components/PageHeader.vue';
+    import PageFooter from '@/components/PageFooter.vue';
+</script>
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+    @font-face {
+        font-family: "Moma";
+        src: url('~@/assets/fonts/moma-sans__regular.woff2') format('woff2');
+        font-weight: 400;
+    }
 
-nav {
-  padding: 30px;
-}
+    @font-face {
+        font-family: "Moma";
+        src: url('~@/assets/fonts/moma-sans__regular--italic.woff2') format('woff2');
+        font-weight: 400;
+        font-style: italic;
+    }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+    @font-face {
+        font-family: "Moma";
+        src: url('~@/assets/fonts/moma-sans__bold.woff2') format('woff2');
+        font-weight: 900;
+    }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+    @font-face {
+        font-family: "Moma";
+        src: url('~@/assets/fonts/moma-sans__bold--italic.woff2') format('woff2');
+        font-weight: 900;
+        font-style: italic;
+    }
+
+    #app {
+        font-family: 'Moma';
+    }
 </style>

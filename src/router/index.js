@@ -4,17 +4,49 @@ import HomeView from '../views/HomeView.vue'
 const routes = [
   {
     path: '/',
+    name: 'HomePage',
+    component: () => import(/* webpackChunkName: "home" */ '@/views/HomePage.vue')
+  },
+  {
+    path: '/',
     name: 'home',
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/page/:slug',
+    name: 'Page',
+    component: () => import(/* webpackChunkName: "page" */ '@/views/PageOther.vue')
+  },
+  {
+    path: '/fares',
+    name: 'FaresTimes',
+    component: () => import(/* webpackChunkName: "fares" */ '@/views/FaresTimes.vue')
+  },
+  {
+    path: '/plan',
+    name: 'PlanVisit',
+    component: () => import(/* webpackChunkName: "plan" */ '@/views/PlanVisit.vue')
+  },
+  {
+    path: '/news',
+    name: 'NewsItems',
+    component: () => import(/* webpackChunkName: "news" */ '@/views/NewsItems.vue')
+  },
+  {
+    path: '/events',
+    name: 'EventsList',
+    component: () => import(/* webpackChunkName: "events" */ '@/views/EventsList.vue')
+  },
+  {
+    path: '/special',
+    name: 'SpecialList',
+    component: () => import(/* webpackChunkName: "events" */ '@/views/SpecialList.vue')
+  },
+  {
+    path: '/thomas',
+    name: 'ThomasEvent',
+    component: () => import(/* webpackChunkName: "thomas" */ '@/views/ThomasEvent.vue')
+  },
 ]
 
 const router = createRouter({
