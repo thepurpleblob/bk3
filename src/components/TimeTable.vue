@@ -1,12 +1,12 @@
 <template>
     <div id="timetable" class="container-fluid py-1 px-0 px-sm-2"> 
-        <p class="mt-2 text-center text-uppercase"><b>{{ title }} TIMETABLE</b></p>
-        <table v-if="services" class="table table-striped table-sm table-responsive border border-4 rounded-2" :style="modalColor">
+        <p class="mt-2 text-center text-uppercase"><b>{{ props.title }} TIMETABLE</b></p>
+        <table v-if="props.services" class="table table-striped table-sm table-responsive border border-4 rounded-2" :style="modalColor">
             <tbody>
                 <tr>
                     <td />
                     <td />
-                    <td v-for="service in services" :key="service.upBoness">
+                    <td v-for="service in props.services" :key="service.upBoness">
                         <b>{{ service.Traction }}</b>
                     </td>
                 </tr>
@@ -50,7 +50,7 @@
                         {{ service.UpManuel }}
                     </td>
                 </tr>
-                <tr><td :colspan="servicecount+2">&nbsp;</td></tr>
+                <tr><td :colspan="props.servicecount+2">&nbsp;</td></tr>
                 <tr>
                     <th>
                         Manuel
@@ -94,10 +94,10 @@
             </tbody>
         </table>
 
-        <div v-if="info" v-html="info" class="alert alert-info text-center"></div>
+        <div v-if="props.info" v-html="props.info" class="alert alert-info text-center"></div>
 
-        <div v-if="link" class="mt-4">
-            <router-link class="btn btn-outline-dark" :to="link" @click="$emit('close')">Find out more...</router-link>
+        <div v-if="props.link" class="mt-4">
+            <router-link class="btn btn-outline-dark" :to="props.link" @click="$emit('close')">Find out more...</router-link>
         </div>
 
         <div class="text-end">
@@ -107,67 +107,42 @@
     </div> 
 </template>
 
-<script>
-    export default {
-        name: 'TimeTable',
-        props: {
-            services: {
-                type: Array,
-                required: false,
-            },
-            title: {
-                type: String,
-                required: true,
-            },
-            color: {
-                type: String,
-                required: true,
-            },
-            info: {
-                type: String,
-                required: false,
-            },
-            servicecount: {
-                type: Number,
-                required: true,
-            },
-            link: {
-                type: String,
-                required: false,
-            }
-        },
-        computed: {
-            modalColor() {
-                let css = '';
-                switch (this.color) {
-                    case 'grey':
-                        css = '#718096';
-                        break;
-                    case 'yellow':
-                        css = '#d69e2e';
-                        break;
-                    case 'green':
-                        css = '#198754';
-                        break;
-                    case 'orange':
-                        css = '#fd7e14';
-                        break;
-                    case 'blue':
-                        css = '#0d6efd';
-                        break;
-                }
-                return {
-                    'border-color': css + ' !important',
-                }
-            }
-        },
-        methods: {
+<script setup>
+    import { computed, defineProps } from 'vue';
 
-        },
-        mounted: function() {
-            //this.display();
+    const props = defineProps({
+        services: Array,
+        title: String,
+        color: String,
+        info: String,
+        servicecount: Number,
+        link: String,
+    });
+
+    const modalColor = computed(() => {
+        let css = '';
+        switch (props.color) {
+            case 'grey':
+                css = '#718096';
+                break;
+            case 'yellow':
+                css = '#d69e2e';
+                break;
+            case 'green':
+                css = '#198754';
+                break;
+            case 'orange':
+                css = '#fd7e14';
+                break;
+            case 'blue':
+                css = '#0d6efd';
+                break;
         }
-    }
+        return {
+            'border-color': css + ' !important',
+        }        
+    })
+
 </script>
 
 <style>
