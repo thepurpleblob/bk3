@@ -5,32 +5,32 @@
                 <h3 class="card-header">TIMETABLES</h3>
                 <div class="card-body">
                     <h6 class="card-subtitle mb-4">Click on a date to see the train times...</h6>
-                    <LoadingCMS v-if="loading"></LoadingCMS>
-                    <VCalendar
-                        v-if="isPopulated && !loading" 
-                        expanded
-                        :attributes="attributes"
-                        :firstDayOfWeek="2"
-                        :min-date="new Date()"
-                        color="blue"
-                        v-on:dayclick="onDayclick"
-                        v-on:update:from-page="toPage">
-                    </VCalendar>
-                    <div v-if="!loading" class="row py-4">
-                        <div v-for="label in labels" :key="label.title" class="col" @click.prevent="labelclicked(label.ttid, label.rawcolor)">
-                            <a class="text-decoration-none text-dark" href="#">
-                                <span class="dot rounded-circle" :class="label.color"></span> {{ label.title }}
-                            </a>
+                    <div class="card-text">
+                        <!-- <LoadingCMS v-if="loading"></LoadingCMS> -->
+                        <VCalendar
+                            :attributes="attributes"
+                            expanded
+                            color="blue"
+                            @dayclick="onDayclick"
+                            @update:pages="toPage"
+                        >
+                        </VCalendar>
+                        <div class="row py-4">
+                            <div v-for="label in labels" :key="label.title" class="col" @click.prevent="labelclicked(label.ttid, label.rawcolor)">
+                                <a class="text-decoration-none text-dark" href="#">
+                                    <span class="dot rounded-circle" :class="label.color"></span> {{ label.title }}
+                                </a>
+                            </div>
+                            <div v-if="!isEvents" class="alert alert-dark">
+                                <b>Sorry, there are no services this month</b>
+                            </div>
                         </div>
-                        <div v-if="!isEvents" class="alert alert-dark">
-                            There are no services in this month
+                        <div>
+                            <!--
+                            <a href="./staticassets/Timetable2022.pdf" download>Download PDF timetable</a>
+                            <span class="text-primary">PDF of 2023 Timetable coming soon</span>
+                            -->
                         </div>
-                    </div>
-                    <div>
-                        <!--
-                        <a href="./staticassets/Timetable2022.pdf" download>Download PDF timetable</a>
-                        -->
-                        <span class="text-primary">PDF of 2023 Timetable coming soon</span>
                     </div>
                 </div>
             </div>
@@ -41,11 +41,11 @@
 
 <script setup>
     import { ref, onMounted, watch } from 'vue';
-    import { VueFinalModal, useModal, useModalSlot } from 'vue-final-modal'
+    import { VueFinalModal, useModal } from 'vue-final-modal'
     import axios from 'axios';
     import TimeTable from '@/components/TimeTable';
     import FaresBlock from '@/components/FaresBlock.vue';
-    import LoadingCMS from '@/components/LoadingCMS.vue';
+    //import LoadingCMS from '@/components/LoadingCMS.vue';
     import { useToast } from "vue-toastification";
     import { useRoute } from 'vue-router';
     
@@ -64,15 +64,7 @@
         component: VueFinalModal,
         attrs: { },
         slots: {
-            default: useModalSlot({
-                component: TimeTable,
-                attrs: {
-                    // Bind ModalContent props
-                    title: 'Hello world!'
-                    // Bind ModalContent events
-                    //onConfirm() {  }
-                }
-            })
+            default: '<p>The content of the modal</p>'
         }
     });
 
@@ -115,14 +107,16 @@
     function update() {
         const url = process.env.VUE_APP_ENDPOINT;
 
+        window.console.log('UPDATE');
+
         // Get event items
         axios.get(url + '/Calendar?limit=-1')
         .then(response => {
-            const events = response.data.data;
-            attributes.value = [];
-            events.forEach(event => {
+            events.value = response.data.data;
+            const buildattributes = [];
+            events.value.forEach(event => {
                 const eventdate = new Date(event.date);
-                attributes.value.push({
+                buildattributes.push({
                     key: event.id,
                     dates: eventdate,
                     highlight: {
@@ -136,6 +130,7 @@
                     }
                 });
             });
+            attributes.value = buildattributes;
             isPopulated.value = true;
             loading.value = false;
         })
@@ -148,22 +143,18 @@
     /**
      * Get the individual timetable data
      */
-    // eslint-disable-next-line
+    /*
     function displayTimetable(ttid, color) {
         const url = process.env.VUE_APP_ENDPOINT;
         axios.get(url + '/Timetable/' + ttid)
-        // eslint-disable-next-line
         .then(response => {
-            /*
             const services = response.data.data.Service;
             const title = response.data.data.Title;
             const info = response.data.data.Info;
             const link = response.data.data.link;
-            */
 
             modalInstance.open();
 
-            /*
             v.$modal.show(
                 TimeTable,
                 {
@@ -180,18 +171,22 @@
                     minHeight: 300,
                 }
             );
-            */
         })
         .catch(err => {
             toast.error("Failed to communicate with server - see console");
             window.console.error(err);
         });  
+    }*/
+    function displayTimetable(ttid, color) {
+        window.console.log(ttid, color);
+        modalInstance.open();
     }
 
     /**
      * Day has been clicked/selected
      */
     function onDayclick(day) {
+        window.console.log('ONDAYCLICK');
         if (day.attributes.length) {
             const ttid = day.attributes[0].customData.ttid;
             const color = day.attributes[0].customData.color;
@@ -219,21 +214,22 @@
 
     /**
      * Page change
+     * (isPopulated is critical for this to be called with data)
      */
-    function toPage(page) {
-        // (isPopulated is critical for this to be called with data)
-        window.console.log('TO PAGE');
+    function toPage(pages) {
+        window.console.log('TOPAGE');
+        const page = pages[0];
         const yearmonth = page.year.toString() + '-' + page.month.toString().padStart(2, '0');
-        const labels = [];
-        isEvents.value = false;
+        let monthlabels = [];
+        let eventsfound = false;
         events.value.forEach(event => {
             if ((event.date.slice(0, 7) == yearmonth) && (event.Color != null) && (event.Title != null)) {
-                isEvents.value = true;
+                eventsfound = true;
                 if (event.SpecialEvent) {
-                    if (!labels.find(label => {
+                    if (!monthlabels.find(label => {
                         return label.title == event.Title;
                     })) {
-                        labels.push({
+                        monthlabels.push({
                             title: event.Title,
                             color: 'dot-' + event.Color,
                             ttid: event.Timetable,
@@ -241,10 +237,10 @@
                         });
                     }
                 } else {
-                    if (!labels.find(label => {
+                    if (!monthlabels.find(label => {
                         return label.color == 'dot-' + event.Color;
                     })) {
-                        labels.push({
+                        monthlabels.push({
                             title: event.Title + ' Timetable',
                             color: 'dot-' + event.Color,
                             ttid: event.Timetable,
@@ -254,15 +250,16 @@
                 }
             }
         });
-        labels.value = labels;
+        labels.value = monthlabels;
+        isEvents.value = eventsfound;
     }
 
     /** 
      * Label has been clicked
      */
-    function labelclicked(ttid, color) {
-        displayTimetable(ttid, color);
-    }
+    //function labelclicked(ttid, color) {
+    //    displayTimetable(ttid, color);
+    //}
 
     /**
      * Display when mounted
