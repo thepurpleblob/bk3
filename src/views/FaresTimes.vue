@@ -1,3 +1,4 @@
+
 <template>
     <div class="row mt-4">
         <div class="col-12 col-sm-6">
@@ -37,18 +38,21 @@
         </div>    
         <FaresBlock></FaresBlock>     
     </div>
+
+    <VuModal v-model="showmodal" title="My Modal Title">
+        Modal content
+        <TimeTable></TimeTable>
+    </VuModal>
 </template>
 
 <script setup>
     import { ref, onMounted, watch } from 'vue';
-    import { VueFinalModal, useModal } from 'vue-final-modal'
     import axios from 'axios';
     import TimeTable from '@/components/TimeTable';
     import FaresBlock from '@/components/FaresBlock.vue';
     //import LoadingCMS from '@/components/LoadingCMS.vue';
     import { useToast } from "vue-toastification";
     import { useRoute } from 'vue-router';
-    
 
     const loading = ref(true);
     const isPopulated = ref(false);
@@ -58,15 +62,7 @@
     const attributes = ref([]);
     const toast = useToast();
     const route = useRoute();
-
-    // Setup modal
-    const modalInstance = useModal({
-        component: VueFinalModal,
-        attrs: { },
-        slots: {
-            default: '<p>The content of the modal</p>'
-        }
-    });
+    const showmodal = ref(false);
 
     /**
      * Tidy up services data from Timetable
@@ -179,7 +175,7 @@
     }*/
     function displayTimetable(ttid, color) {
         window.console.log(ttid, color);
-        modalInstance.open();
+        showmodal.value = true;
     }
 
     /**

@@ -3,14 +3,12 @@
     <PageHeader></PageHeader>
     <router-view/>
     <PageFooter></PageFooter>
-    <ModalsContainer />
   </div>
 </template>
 
 <script setup>
     import PageHeader from '@/components/PageHeader.vue';
     import PageFooter from '@/components/PageFooter.vue';
-    import { ModalsContainer } from 'vue-final-modal'
 </script>
 
 
