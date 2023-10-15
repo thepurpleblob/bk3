@@ -1,7 +1,8 @@
 <template>
     <div id="timetable" class="container-fluid py-1 px-0 px-sm-2"> 
         <p class="mt-2 text-center text-uppercase"><b>{{ props.title }} TIMETABLE</b></p>
-        <table v-if="props.services" class="table table-striped table-sm table-responsive border border-4 rounded-2" :style="modalColor">
+        <div class="table-responsive">
+        <table v-if="props.services" class="table table-striped table-sm border border-4 rounded-2" :style="modalColor">
             <tbody>
                 <tr>
                     <td />
@@ -93,6 +94,7 @@
                 </tr>        
             </tbody>
         </table>
+        </div>
 
         <div v-if="props.info" v-html="props.info" class="alert alert-info text-center"></div>
 
