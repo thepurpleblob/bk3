@@ -101,14 +101,14 @@
         </div>
 
         <div class="text-end">
-            <button type="button" class="btn btn-primary" @click="$emit('close')">Close</button>
+            <button type="button" class="btn btn-primary" @click="close_timetable()">Close</button>
         </div>
 
     </div> 
 </template>
 
 <script setup>
-    import { computed, defineProps } from 'vue';
+    import { computed, defineProps, defineEmits } from 'vue';
 
     const props = defineProps({
         services: Array,
@@ -118,6 +118,8 @@
         servicecount: Number,
         link: String,
     });
+
+    const emits = defineEmits(['close']);
 
     const modalColor = computed(() => {
         let css = '';
@@ -143,6 +145,9 @@
         }        
     })
 
+    function close_timetable() {
+        emits('close');
+    }
 </script>
 
 <style>

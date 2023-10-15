@@ -39,9 +39,16 @@
         <FaresBlock></FaresBlock>     
     </div>
 
-    <VuModal v-model="showmodal" title="My Modal Title">
-        Modal content
-        <TimeTable></TimeTable>
+    <VuModal v-model="showmodal" >
+        <TimeTable
+            :services="format_services(services)"
+            :title="title"
+            :color="color"
+            :info="info"
+            :servicecount="services != null ? services.length : 0"
+            :link="link"
+            @close="showmodal=false"
+        ></TimeTable>
     </VuModal>
 </template>
 
@@ -63,12 +70,16 @@
     const toast = useToast();
     const route = useRoute();
     const showmodal = ref(false);
+    const services = ref([]);
+    const title = ref('');
+    const info = ref('');
+    const link = ref('');
+    const color = ref('');
 
     /**
      * Tidy up services data from Timetable
      * @param {*} services 
      */
-    /*
     function format_services(services) {
         const stations = [
             'UpBoness',
@@ -95,7 +106,6 @@
 
         return services;
     }
-    */
 
     /**
      * Update the calendar page
@@ -139,43 +149,23 @@
     /**
      * Get the individual timetable data
      */
-    /*
-    function displayTimetable(ttid, color) {
+    function displayTimetable(ttid) {
         const url = process.env.VUE_APP_ENDPOINT;
         axios.get(url + '/Timetable/' + ttid)
         .then(response => {
-            const services = response.data.data.Service;
-            const title = response.data.data.Title;
-            const info = response.data.data.Info;
-            const link = response.data.data.link;
+            services.value = response.data.data.Service;
+            title.value = response.data.data.Title;
+            info.value = response.data.data.Info;
+            link.value = response.data.data.link;
 
-            modalInstance.open();
+            //modalInstance.open();
 
-            v.$modal.show(
-                TimeTable,
-                {
-                    services: format_services(services),
-                    title: title,
-                    color: color,
-                    info: info,
-                    servicecount: services != null ? services.length : 0,
-                    link: link,
-                },
-                {
-                    adaptive: true,
-                    height: 'auto',
-                    minHeight: 300,
-                }
-            );
+            showmodal.value = true;
         })
         .catch(err => {
             toast.error("Failed to communicate with server - see console");
             window.console.error(err);
         });  
-    }*/
-    function displayTimetable(ttid, color) {
-        window.console.log(ttid, color);
-        showmodal.value = true;
     }
 
     /**
@@ -185,9 +175,9 @@
         window.console.log('ONDAYCLICK');
         if (day.attributes.length) {
             const ttid = day.attributes[0].customData.ttid;
-            const color = day.attributes[0].customData.color;
+            color.value = day.attributes[0].customData.color;
             if (ttid != null) {
-                displayTimetable(ttid, color);
+                displayTimetable(ttid);
             }
         } else {
 
