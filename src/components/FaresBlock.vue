@@ -64,8 +64,6 @@
     </div>   
 </template>
 
-<script>
-export default {
-    name: 'FaresBlock',
-}
+<script setup>
+
 </script>

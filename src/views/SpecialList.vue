@@ -27,49 +27,44 @@
     </div>
 </template>
 
-<script>
-import axios from 'axios';
-import EventCard from '../components/EventCard.vue';
+<script setup>
+    import { ref, onMounted } from 'vue';
+    import axios from 'axios';
+    import EventCard from '@/components/EventCard.vue';
+    import { useToast } from "vue-toastification";
 
-export default {
-    name: 'SpecialList',
-    components: {
-        EventCard,
-    },
-    data: function() {
-        return {
-            loading: true,
-            items: [],
-            noitems: false,
-            blockstyle: '',
-            assets: '',
-        }
-    },
-    mounted: function() {
+    const toast = useToast();
+
+    const loading = ref(true);
+    const items = ref([]);
+    const noitems = ref(false);
+    //const blockstyle = ref('');
+    const assets = ref('');
+
+    onMounted(() => {
         const url = process.env.VUE_APP_ENDPOINT;
-        this.assets = process.env.VUE_APP_ASSETS + '/';
+        assets.value = process.env.VUE_APP_ASSETS + '/';
         
         // Get front page items
-        const v = this;
         axios.get(url + '/Specials?filter={ "status": { "_eq": "published" }}')
         .then(response => {
-            const items = response.data.data;
+            const newitems = response.data.data;
             let isleft = true;
-            items.forEach(item => {
-                item.imageurl = v.assets + item.Image;
+            newitems.forEach(item => {
+                item.imageurl = assets.value + item.Image;
                 item.morelink = '/page/' + item.More;
                 item.isleft = isleft;
                 isleft = !isleft;
             });
-            v.items = items;
-            v.loading = false;
-            v.noitems = v.items.length == 0;
+            items.value = newitems;
+            loading.value = false;
+            noitems.value = items.value.length == 0;
         })
         .catch(err => {
-            v.$log.error(err);
-        });
-    }
-}
+            toast.error("Failed to communicate with server - see console");
+            window.console.error(err);
+        });        
+    })
 </script>
 
 <style>
