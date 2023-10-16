@@ -39,7 +39,7 @@
         <FaresBlock></FaresBlock>     
     </div>
 
-    <VuModal v-model="showmodal" >
+    <VuModal v-model="showmodal" modalClass="p-0">
         <TimeTable
             :services="format_services(services)"
             :title="title"
@@ -179,23 +179,7 @@
             if (ttid != null) {
                 displayTimetable(ttid);
             }
-        } else {
-
-            this.$modal.show(
-                TimeTable,
-                {
-                    title: '',
-                    color: '#000000',
-                    info: 'There are no services on this day',
-                    servicecount: 0,
-                },
-                {
-                    adaptive: true,
-                    height: 'auto',
-                    minHeight: 300,
-                }
-            );               
-        }
+        } 
     }
 
     /**
@@ -243,9 +227,10 @@
     /** 
      * Label has been clicked
      */
-    //function labelclicked(ttid, color) {
-    //    displayTimetable(ttid, color);
-    //}
+    function labelclicked(ttid, rawcolor) {
+        color.value = rawcolor;
+        displayTimetable(ttid);
+    }
 
     /**
      * Display when mounted
@@ -264,6 +249,10 @@
 </script>
 
 <style lang="scss">
+    .vm-content {
+        padding: 0 !important;
+    }
+
     .dot {
         height: 25px;
         width: 25px;
