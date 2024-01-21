@@ -15,12 +15,14 @@
                         </p>
                         <p>
                             Our friendly volunteers are waiting to  welcome you aboard and invite you the soak up the atmosphere
-                            of our award-winning heritage railway through the sights, sounds and smells of yesteryear. 
+                            of our award-winning heritage railway through the sights, sounds and smells of yesteryear.
                         </p>
                         <div class="alert alert-warning">
                             <b>ACCESSIBILITY IMPORTANT INFO:</b> Our accessible carriage is available on most trains* and can
-                            accomodate wheelchairs. Wheelchairs cannot be accommodated in our compartments 
+                            accomodate wheelchairs. Wheelchairs cannot be accommodated in our compartments
                             due to their historic nature.
+                            <br />
+                            <a href="https://www.accessibilityguides.org/content/boness-kinneil-railway">Please see our accessibility guide, here.</a>
                             <br /><br />
                             <i>*not available for some special events. Please check Event page for details. </i>
                         </div>
@@ -40,7 +42,7 @@
                             school holidays during this period. Although you can just turn up on your chosen day
                             (except special events), we highly recommend you pre-book to guarantee a place on your chosen train.
                         </p>
- 
+
                         <p>
                             <router-link to="/fares">Check our opening days and train times</router-link>
                         </p>
@@ -101,18 +103,18 @@
                 <p>
                     If you are travelling by an electric vehicle, there are 5 electric car charging points
                     (connectors) available at <a href="https://www.zap-map.com/location/1pu6dal/">Union Street Car Park</a>,
-                    less than 5 minutes walk from the station. 
+                    less than 5 minutes walk from the station.
                 </p>
 
                 <h5>By bus from Edinburgh</h5>
                 <p>
-                    <a href="https://www.citylink.co.uk/">Scottish Citylink</a> 
+                    <a href="https://www.citylink.co.uk/">Scottish Citylink</a>
                 </p>
 
                 <h5>By train and bus</h5>
                 <p>
                     Linlithgow is the nearest mainline station. Visitors should alight here and make their
-                    way to Linlithgow Cross and the bus stop outside The Four Marys pub. Please see 
+                    way to Linlithgow Cross and the bus stop outside The Four Marys pub. Please see
                     <a href="https://travelinescotland.com">www.travellinescotland.com</a> or call 0871 200 2233
                     for information about bus services.
                 </p>
@@ -144,7 +146,7 @@
         .catch(err => {
             toast.error("Failed to communicate with server - see console");
             window.console.error(err);
-        });   
+        });
     });
 </script>
 
