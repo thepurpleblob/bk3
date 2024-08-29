@@ -44,11 +44,11 @@
                     <li>Adult - £3 (normal price £7)</li>
                     <li>Child - 50p (normal price £2)</li>
                 </ul>
-                -->
                 <ul>
                     <li>Adult - <i>2024 Prices TBC</i></li>
                     <li>Child - <i>2024 Prices TBC</i></li>
                 </ul>
+                -->
                 <p class="mt-3">
                     <i>Special event fares apply -
                         <router-link to="events">Please see our Events page for further information</router-link></i>
@@ -64,13 +64,10 @@
                     </p>
                     <ul>
                         <li>Adult - <strong>£60.00</strong></li>
-                        <li>Senior (60+) - <strong>£55.00</strong></li>
                         <li>Child (5-15) - <strong>£35.00</strong></li>
                         <li>Family (2 adults and up to 3 children) - <strong>£180.00</strong></li>
                     </ul>
-                    <p>
-                        <a href="./staticassets/SeasonTicket22.pdf" download>Download Season Ticket leaflet</a>
-                    </p>
+
             </div>
         </div>
     </div>
