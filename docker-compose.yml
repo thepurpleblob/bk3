@@ -1,0 +1,27 @@
+services:
+    bkrailway:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8084:80
+        restart: always
+    directus:
+        image: directus/directus:11.1.0
+        ports:
+            - 8058:8055
+        restart: always
+        volumes:
+            - ./database:/directus/database
+            - ./uploads:/directus/uploads
+            - ./extensions:/directus/extensions
+        environment:
+            SECRET: "T&|A~1)9!V8.R+:o#C:&ZB[hT0&J;F"
+            ADMIN_EMAIL: "admin@example.com"
+            ADMIN_PASSWORD: "purple"
+            DB_CLIENT: "sqlite3"
+            DB_FILENAME: "/directus/database/database.sqlite"
+            WEBSOCKETS_ENABLED: "true"
+
+
+        
