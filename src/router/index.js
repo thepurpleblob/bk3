@@ -7,6 +7,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "home" */ '@/views/HomePage.vue')
   },
   {
+    path: '/birkhill',
+    redirect: '/page/birkhill',
+  },
+  {
     path: '/page/:slug',
     name: 'Page',
     component: () => import(/* webpackChunkName: "page" */ '@/views/PageOther.vue')
