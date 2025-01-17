@@ -37,8 +37,15 @@
         assets.value = process.env.VUE_APP_ASSETS + '/';
         
         // Get front page items
-        axios.get(url + '/Events?filter={ "status": { "_eq": "published" }}')
+        const filter = {
+            status: {
+                _eq: 'published',
+            }
+        };
+        //axios.get(url + '/Events?filter={ "status": { "_eq": "published" }}')
+        axios.get(url + '/Events?sort=SortDate&filter=' + JSON.stringify(filter))
         .then(response => {
+            window.console.log(response);
             let isleft = true;
             const respitems = response.data.data;
             respitems.forEach(item => {

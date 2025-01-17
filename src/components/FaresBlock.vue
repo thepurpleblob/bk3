@@ -3,7 +3,7 @@
         <div class="card">
             <h3 class="card-header">FARES</h3>
             <div class="card-body">
-                <p><b>Your ticket is valid for the train journey you select on our orange timetable days. </b></p>
+                <p><b>Your ticket is valid for the train journey you select on our orange, yellow, green and lilac timetable days. </b></p>
 
                 <ul>
                     <li>Private Compartment for up to 6 people - <strong>£75.00</strong></li>
@@ -15,7 +15,7 @@
 
                 <ul>
                     <li>Adult (16+) - <strong>£17.00</strong></li>
-                    <li>Child (5-15) - <strong>£10.00</strong></li>
+                    <li>Child (2-15) - <strong>£10.00</strong></li>
                     <li>Family (2 adults and up to 3 children) - <strong>£48.00</strong></li>
                     <li>Infants (under age 2)  - <strong>Free</strong> (but do not get a seat)</li>
                     <li>Carer - <strong>Free</strong> <small>1 CARER PER 1 PAYING CUSTOMER. MUST SHOW RELEVANT IDENTIFICATION OR WILL BE CHARGED FULL FARE.</small></li>
