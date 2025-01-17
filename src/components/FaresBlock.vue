@@ -14,10 +14,10 @@
                 </p>
 
                 <ul>
-                    <li>Adult (16+) - <strong>£16.00</strong></li>
-                    <li>Child (5-15) - <strong>£9.00</strong></li>
-                    <li>Family (2 adults and up to 3 children) - <strong>£45.00</strong></li>
-                    <li>Infants (under age 5)  - <strong>Free</strong> (but do not get a seat)</li>
+                    <li>Adult (16+) - <strong>£17.00</strong></li>
+                    <li>Child (5-15) - <strong>£10.00</strong></li>
+                    <li>Family (2 adults and up to 3 children) - <strong>£48.00</strong></li>
+                    <li>Infants (under age 2)  - <strong>Free</strong> (but do not get a seat)</li>
                     <li>Carer - <strong>Free</strong> <small>1 CARER PER 1 PAYING CUSTOMER. MUST SHOW RELEVANT IDENTIFICATION OR WILL BE CHARGED FULL FARE.</small></li>
                 </ul>
 
@@ -63,9 +63,9 @@
                         running.
                     </p>
                     <ul>
-                        <li>Adult - <strong>£60.00</strong></li>
-                        <li>Child (5-15) - <strong>£35.00</strong></li>
-                        <li>Family (2 adults and up to 3 children) - <strong>£180.00</strong></li>
+                        <li>Adult - <strong>£77.00</strong></li>
+                        <li>Child (5-15) - <strong>£45.00</strong></li>
+                        <li>Family (2 adults and up to 3 children) - <strong>£220.00</strong></li>
                     </ul>
 
             </div>
