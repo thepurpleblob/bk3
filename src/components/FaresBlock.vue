@@ -6,7 +6,7 @@
                 <p><b>Your ticket is valid for the train journey you select on our orange timetable days. </b></p>
 
                 <ul>
-                    <li>Private Compartment for up to 6 people - <strong>£70.00</strong></li>
+                    <li>Private Compartment for up to 6 people - <strong>£75.00</strong></li>
                 </ul>
 
                 <p>
