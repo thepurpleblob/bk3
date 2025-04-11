@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faUserSecret, faEnvelope, faPhoneSquareAlt, faTicketAlt, faCalendarAlt, faGlobe, faPoundSign } from '@fortawesome/free-solid-svg-icons';
+import { faUserSecret, faEnvelope, faPhoneSquareAlt, faTicketAlt, faCalendarAlt, faGlobe, faPoundSign, faDog } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookSquare, faInstagramSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
 import VCalendar from 'v-calendar';
 import 'v-calendar/style.css';
@@ -26,6 +26,7 @@ library.add(
     faCalendarAlt,
     faGlobe,
     faPoundSign,
+    faDog,
 );
 
 const toastoptions = {

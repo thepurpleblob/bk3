@@ -21,6 +21,15 @@
                     <li>Carer - <strong>Free</strong> <small>1 CARER PER 1 PAYING CUSTOMER. MUST SHOW RELEVANT IDENTIFICATION OR WILL BE CHARGED FULL FARE.</small></li>
                 </ul>
 
+                <p>
+                    <font-awesome-icon class="fa-fw pe-1" size="2x" icon="dog"/> Doggy tickets
+                </p>
+
+                <ul>
+                    <li>Dogs, return services to Manuel - <strong>£3.00</strong></li>
+                    <li>Dogs, return services to Birkhill - <strong>£2.00</strong></li>
+                </ul>
+
                 <!--
                 <ul>
                     <li>Adult - <strong><i>2024 Fares TBC</i></strong></li>
