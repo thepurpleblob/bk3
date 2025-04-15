@@ -49,7 +49,7 @@
                     train ticket and get a great discount -
                 </p>
 
-                <div class="alert alert-warning">MUSEUM OPENS FROM SATURDAY 19th APRIL 2025</div>
+                <div class="alert alert-warning">MUSEUM IS CURRENTLY CLOSED UNTIL SATURDAY 19th APRIL 2025</div>
                 <!--
                 <ul>
                     <li>Adult - £3 (normal price £7)</li>
