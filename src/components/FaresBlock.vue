@@ -22,7 +22,8 @@
                 </ul>
 
                 <p>
-                    <font-awesome-icon class="fa-fw pe-1" size="2x" icon="dog"/> Doggy tickets
+                    <font-awesome-icon class="fa-fw pe-1" size="2x" icon="dog"/> Doggy tickets<br />
+                    (available on day of visit from Bo'ness Station)
                 </p>
 
                 <ul>
