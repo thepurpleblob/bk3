@@ -46,10 +46,6 @@
                 </ul>
                 -->
 
-                <p class="text-center">
-                    <a href="https://bkrailway.digitickets.co.uk" title="Book your tickets">
-                    <img width="150px" src="@/assets/Click-for-tickets.png" alt="Book your Tickets" /></a>
-                </p>
                 <p>
                     Add a visit to the <router-link to="page/museum">Museum of Scottish Railways</router-link> when you buy your
                     train ticket and get a great discount -
