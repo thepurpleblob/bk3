@@ -30,6 +30,12 @@
                     <li>Dogs, return services to Birkhill - <strong>£2.00</strong></li>
                 </ul>
 
+                <p class="text-center">
+                    <a href="https://bkrailway.digitickets.co.uk">
+                        <img class="mx-auto" src="@/assets/Click-for-tickets.png" style="width:150px" alt="Book tickets" />
+                    </a>
+                </p>
+
                 <!--
                 <ul>
                     <li>Adult - <strong><i>2024 Fares TBC</i></strong></li>
