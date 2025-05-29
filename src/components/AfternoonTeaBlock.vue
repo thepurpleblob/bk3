@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-4">
+    <div class="my-4">
         <div class="card">
             <h3 class="card-header">AFTERNOON TEA on a STEAM TRAIN</h3>
             <div class="card-body">

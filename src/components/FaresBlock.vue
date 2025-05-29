@@ -53,7 +53,7 @@
                 </p>
 
                 <p>
-                    <b>Museum</b> Open Fridays (except 27<sup>th</sup> June) Saturdays, Sundays, Mondays, Tuesdays, Wednesday 15th October, and
+                    <b>Museum</b> Open Fridays (except 27<sup>th</sup> June), Saturdays, Sundays, Mondays, Tuesdays, Wednesday 15th October, and
                     all Thursdays in July and August. 
                 </p>
 
