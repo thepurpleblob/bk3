@@ -52,7 +52,11 @@
                     train ticket and get a great discount -
                 </p>
 
-                <div class="alert alert-warning">MUSEUM IS CURRENTLY CLOSED UNTIL SATURDAY 19th APRIL 2025</div>
+                <p>
+                    <b>Museum</b> Open (except 27<sup>th</sup> June) Saturdays, Sundays, Mondays, Tuesdays, Wednesday 15th October, and
+                    all Thursdays in July and August. 
+                </p>
+
                 <!--
                 <ul>
                     <li>Adult - £3 (normal price £7)</li>
