@@ -35,6 +35,7 @@
                     </div>
                 </div>
             </div>
+            <AfternoonTeaBlock></AfternoonTeaBlock>
         </div>    
         <FaresBlock></FaresBlock>     
     </div>
@@ -57,6 +58,7 @@
     import axios from 'axios';
     import TimeTable from '@/components/TimeTable';
     import FaresBlock from '@/components/FaresBlock.vue';
+    import AfternoonTeaBlock from '@/components/AfternoonTeaBlock.vue';
     //import LoadingCMS from '@/components/LoadingCMS.vue';
     import { useToast } from "vue-toastification";
     import { useRoute } from 'vue-router';
