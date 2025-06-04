@@ -42,8 +42,9 @@ const routes = [
   },
   {
     path: '/thomas',
-    name: 'ThomasEvent',
-    component: () => import(/* webpackChunkName: "thomas" */ '@/views/ThomasEvent.vue')
+    redirect: '/page/thomas'
+    //name: 'ThomasEvent',
+    //component: () => import(/* webpackChunkName: "thomas" */ '@/views/ThomasEvent.vue')
   },
 ]
 
