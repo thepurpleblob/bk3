@@ -131,8 +131,10 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue';
+    import { ref, onMounted } from 'vue';
+    import { useRouter } from 'vue-router';
 
+    const router = useRouter();
     const items = ref([
         {
             n: "One",
@@ -263,6 +265,10 @@
                 You can find out where by visiting <a href="https://www.dayoutwiththomas.co.uk">www.dayoutwiththomas.co.uk</a>.`
         }       
     ]);
+
+    onMounted(() => {
+        router.push('/page/thomas');
+    })
 </script>
 
 <style>
