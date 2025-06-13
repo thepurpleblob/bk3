@@ -8,6 +8,7 @@
                 <h2>{{ title }}</h2>
             </div>
             <div class="pagecontent container-fluid fs-5" v-html="content"></div>
+            <div v-html="video" class="mt-2"></div>
         </div>
     </div>
 </template>
@@ -21,6 +22,7 @@
 
     const loading = ref(true);
     const title = ref('');
+    const video = ref('');
     const content = ref('');
     const toast = useToast();
     const route = useRoute();
@@ -43,6 +45,7 @@
                 const page = pages[0];
                 title.value = page.Title;
                 content.value = page.Content;
+                video.value = page.video;
             } else {
                 toast.error("Unkown page!");
             }
@@ -75,4 +78,9 @@
         padding-right: 5px;
     }
 
+    iframe {
+        aspect-ratio: 16 / 9;
+        width: 100% !important;
+        height: auto !important;
+    }
 </style>

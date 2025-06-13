@@ -43,7 +43,7 @@
             }
         };
         //axios.get(url + '/Events?filter={ "status": { "_eq": "published" }}')
-        axios.get(url + '/Events?sort=SortDate&filter=' + JSON.stringify(filter))
+        axios.get(url + '/Events?sort=-pinned,SortDate&filter=' + JSON.stringify(filter))
         .then(response => {
             window.console.log(response);
             let isleft = true;
