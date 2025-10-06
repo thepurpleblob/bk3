@@ -17,6 +17,7 @@
                             Our friendly volunteers are waiting to  welcome you aboard and invite you the soak up the atmosphere
                             of our award-winning heritage railway through the sights, sounds and smells of yesteryear.
                         </p>
+                        <!--
                         <div class="alert alert-warning">
                             <b>ACCESSIBILITY IMPORTANT INFO:</b> Our accessible carriage is available on most trains* and can
                             accomodate wheelchairs. Wheelchairs cannot be accommodated in our compartments
@@ -26,6 +27,7 @@
                             <br /><br />
                             <i>*not available for some special events. Please check Event page for details. </i>
                         </div>
+                        -->
                     </div>
                 </div>
             </div>
