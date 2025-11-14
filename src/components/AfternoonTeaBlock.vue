@@ -14,7 +14,7 @@
                 </ul>
 
                 <div class="text-center mt-4">
-                    <a class="btn btn-primary" href="https://bkrailway.digitickets.co.uk/event-tickets/41583?catID=41679">Book now</a>
+                    <a class="btn btn-primary" href="https://www.bkrailway.co.uk/page/afternoontea">Book now</a>
                 </div>
             </div>
         </div>
