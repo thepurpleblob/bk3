@@ -47,6 +47,7 @@
                 </ul>
                 -->
 
+                <!--
                 <p>
                     Add a visit to the <router-link to="page/museum">Museum of Scottish Railways</router-link> when you buy your
                     train ticket and get a great discount -
@@ -56,6 +57,15 @@
                     <b>Museum</b> Open Fridays (except 27<sup>th</sup> June), Saturdays, Sundays, Mondays, Tuesdays, Wednesday 15th October, and
                     all Thursdays in July and August. 
                 </p>
+                -->
+
+                <p><b>Festive opening at the <router-link to="page/museum">Museum of Scottish Railways</router-link></b></p>
+
+                <p>Admission £3 Adults, Children Free, plus free for all <router-link to="page/santasteamtrains">Santa Steam Train</router-link> ticket holders.</p>
+
+                <p>Museum Open 6, 7, 13, 14, 20, 21, 23 & 24 December, plus 2 & 3 January.</p>
+
+                <p>Open 11:00 to 15:30 (last admission 15:00) all days except 24 December when closing at 13:30 ( last admission 13:00)</p>
 
                 <!--
                 <ul>
